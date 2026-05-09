@@ -326,28 +326,21 @@ const translations = {
     "actions.refreshingAi": "摘要中",
     "hero.kicker": "多机构官方数据",
     "hero.title": "全球 Hantavirus 官方监测。",
-    "hero.lede": "从 WHO、CDC、PAHO、ECDC 与国家卫生机构交叉核验数据。AI 只摘要可追溯的官方证据，不猜测病例数、趋势或风险。",
-    "hero.policy": "最高权威优先，其次按日期并排显示。",
+    "hero.lede": "汇集 WHO、CDC、PAHO、ECDC 与国家卫生机构公开信息。AI 仅整理带来源的官方证据。",
+    "hero.policy": "",
     "hero.sources": "官方来源",
     "cards.latestEvent": "最新国际事件",
     "cards.authority": "最高权威证据",
     "cards.countries": "国家/地区池",
-    "cards.countriesHint": "全球广覆盖",
+    "cards.countriesHint": "多国家来源",
     "cards.ai": "AI 可信状态",
     "sources.kicker": "官方来源总览",
-    "sources.title": "不是 WHO 独角戏，而是多机构交叉核验。",
-    "sources.body": "每个数字保留来源、日期和摘录。若来源阻挡抓取，页面展示降级原因和官方链接。",
     "countries.kicker": "国家数据矩阵",
-    "countries.title": "全球国家池，按证据和来源状态排序。",
     "countries.search": "搜索国家或地区",
     "regions.all": "全部地区",
-    "regional.kicker": "区域统计",
-    "regional.title": "不同口径并排显示，不强行合并。",
+    "regional.kicker": "区域信号",
     "timeline.kicker": "事件时间线",
-    "timeline.title": "从最新事件到区域基线。",
     "ai.kicker": "严谨 AI 摘要",
-    "ai.title": "AI 只处理官方证据包。",
-    "ai.body": "输入字段被限制为来源、链接、发布日期、国家、指标、数值和摘录。没有引用的结论会被丢弃。",
     "ai.button": "生成 AI 摘要",
     "ai.generating": "生成中",
     "ai.empty": "等待生成。可在左侧配置任意支持的 AI 供应商。",
@@ -358,13 +351,12 @@ const translations = {
     "about.kicker": "Hantavirus 是什么",
     "about.title": "一组多由啮齿动物传播的病毒。",
     "about.body": "Hantavirus 可导致美洲常见的 HPS/HCPS，也可导致欧洲和亚洲常见的 HFRS。暴露通常与被感染啮齿动物的尿液、粪便或唾液污染环境有关。",
-    "method.title": "数据方法",
-    "method.item1": "官方/准官方来源优先。",
-    "method.item2": "数字冲突时并排展示，不合并。",
-    "method.item3": "最高权威来源用醒目状态强调。",
-    "method.item4": "抓取失败时透明降级。",
+    "method.title": "监测范围",
+    "method.item1": "国际事件。",
+    "method.item2": "国家卫生机构。",
+    "method.item3": "区域公共卫生机构。",
+    "method.item4": "AI 摘要审计。",
     "health.kicker": "来源健康",
-    "health.title": "每次刷新都留下审计线索。",
     "health.source": "来源",
     "health.agency": "机构",
     "health.status": "状态",
@@ -403,8 +395,6 @@ const translations = {
     "api.saved": "已保存 AI 供应商配置。",
     "api.cleared": "已清除 AI 供应商配置。",
     "api.notConfigured": "未配置供应商密钥",
-    "disclaimer.title": "使用前请阅读完整免责声明。",
-    "disclaimer.body": "本网站仅用于官方公共卫生信息监测与研究辅助，不提供医学诊断、治疗建议、旅行建议或风险预测。",
     "disclaimer.open": "打开免责声明",
   },
   en: {
@@ -419,28 +409,21 @@ const translations = {
     "actions.refreshingAi": "Summarizing",
     "hero.kicker": "Multi-agency official data",
     "hero.title": "Global Hantavirus official monitor.",
-    "hero.lede": "Cross-check WHO, CDC, PAHO, ECDC, and national public-health sources. AI only summarizes traceable official evidence, never inventing case counts, trends, or risk.",
-    "hero.policy": "Highest authority first, then newer evidence shown side by side.",
+    "hero.lede": "Collects public information from WHO, CDC, PAHO, ECDC, and national health agencies. AI only organizes official evidence with sources.",
+    "hero.policy": "",
     "hero.sources": "official sources",
     "cards.latestEvent": "Latest international event",
     "cards.authority": "Highest authority evidence",
     "cards.countries": "Country pool",
-    "cards.countriesHint": "global coverage",
+    "cards.countriesHint": "multi-country sources",
     "cards.ai": "AI trust state",
     "sources.kicker": "Official source overview",
-    "sources.title": "Not just WHO: a multi-agency verification surface.",
-    "sources.body": "Every number keeps its source, date, and excerpt. If live access is blocked, the page shows the degraded state and official link.",
     "countries.kicker": "Country data matrix",
-    "countries.title": "A global country pool sorted by evidence and source state.",
     "countries.search": "Search country or region",
     "regions.all": "All regions",
-    "regional.kicker": "Regional statistics",
-    "regional.title": "Different scopes stay side by side, not merged.",
+    "regional.kicker": "Regional signals",
     "timeline.kicker": "Event timeline",
-    "timeline.title": "From the latest event to regional baselines.",
     "ai.kicker": "Strict AI summary",
-    "ai.title": "AI only sees official evidence packets.",
-    "ai.body": "Inputs are limited to source, URL, publication date, country, metric, value, and excerpt. Any uncited conclusion is discarded.",
     "ai.button": "Generate AI summary",
     "ai.generating": "Generating",
     "ai.empty": "Waiting to generate. Configure any supported AI provider on the left.",
@@ -451,13 +434,12 @@ const translations = {
     "about.kicker": "What Hantavirus is",
     "about.title": "A group of viruses often carried by rodents.",
     "about.body": "Hantaviruses can cause HPS/HCPS, often discussed in the Americas, and HFRS, often discussed in Europe and Asia. Exposure is usually linked to environments contaminated by infected rodents' urine, feces, or saliva.",
-    "method.title": "Data method",
-    "method.item1": "Official and quasi-official sources first.",
-    "method.item2": "Conflicting numbers are shown side by side.",
-    "method.item3": "Highest-authority sources are visually emphasized.",
-    "method.item4": "Blocked sources degrade transparently.",
+    "method.title": "Monitoring scope",
+    "method.item1": "International events.",
+    "method.item2": "National health agencies.",
+    "method.item3": "Regional public-health agencies.",
+    "method.item4": "AI summary audit.",
     "health.kicker": "Source health",
-    "health.title": "Every refresh leaves an audit trail.",
     "health.source": "Source",
     "health.agency": "Agency",
     "health.status": "Status",
@@ -496,8 +478,6 @@ const translations = {
     "api.saved": "AI provider config saved.",
     "api.cleared": "AI provider config cleared.",
     "api.notConfigured": "Provider key not configured",
-    "disclaimer.title": "Read the full disclaimer before use.",
-    "disclaimer.body": "This site is only for official public-health information monitoring and research assistance. It does not provide diagnosis, treatment advice, travel advice, or risk prediction.",
     "disclaimer.open": "Open disclaimer",
   },
 };
@@ -513,6 +493,14 @@ const state = {
   apiConfig: null,
   lastDetailTriggerRect: null,
   modalClosing: false,
+  modalOpenFrameOne: null,
+  modalOpenFrameTwo: null,
+  modalOpenTimer: null,
+  modalCloseTimer: null,
+  regionalIndex: 0,
+  regionalScrollRaf: null,
+  regionalPaused: false,
+  regionalTimer: null,
 };
 
 const elements = {
@@ -535,16 +523,22 @@ const elements = {
   regionFilter: document.querySelector("#region-filter"),
   countryMatrix: document.querySelector("#country-matrix"),
   regionalGrid: document.querySelector("#regional-grid"),
+  regionalPrev: document.querySelector("#regional-prev"),
+  regionalNext: document.querySelector("#regional-next"),
+  regionalDots: document.querySelector("#regional-dots"),
+  regionalPlayToggle: document.querySelector("#regional-play-toggle"),
   timeline: document.querySelector("#timeline"),
   generateAi: document.querySelector("#generate-ai"),
   aiResult: document.querySelector("#ai-result"),
   healthTable: document.querySelector("#health-table"),
   detailModal: document.querySelector("#detail-modal"),
   detailBackdrop: document.querySelector("#detail-backdrop"),
+  detailPanel: document.querySelector(".detail-panel"),
   detailClose: document.querySelector("#detail-close"),
   detailKicker: document.querySelector("#detail-kicker"),
   detailTitle: document.querySelector("#detail-title"),
   detailBody: document.querySelector("#detail-body"),
+  detailProgressBar: document.querySelector("#detail-progress-bar"),
   apiProvider: document.querySelector("#api-provider"),
   apiModel: document.querySelector("#api-model"),
   apiBaseUrl: document.querySelector("#api-base-url"),
@@ -905,54 +899,94 @@ function setModalRect(rect, panelOpacity = 1) {
   elements.detailModal.style.setProperty("--modal-top", `${Math.round(rect.top)}px`);
   elements.detailModal.style.setProperty("--modal-width", `${Math.round(rect.width)}px`);
   elements.detailModal.style.setProperty("--modal-height", `${Math.round(rect.height)}px`);
+  elements.detailModal.style.setProperty("--backdrop-origin-left", `${Math.round(rect.left)}px`);
+  elements.detailModal.style.setProperty("--backdrop-origin-top", `${Math.round(rect.top)}px`);
   elements.detailModal.style.setProperty("--modal-panel-opacity", panelOpacity);
 }
 
+function clearModalAnimationWork() {
+  if (state.modalOpenFrameOne) window.cancelAnimationFrame(state.modalOpenFrameOne);
+  if (state.modalOpenFrameTwo) window.cancelAnimationFrame(state.modalOpenFrameTwo);
+  if (state.modalOpenTimer) window.clearTimeout(state.modalOpenTimer);
+  if (state.modalCloseTimer) window.clearTimeout(state.modalCloseTimer);
+  state.modalOpenFrameOne = null;
+  state.modalOpenFrameTwo = null;
+  state.modalOpenTimer = null;
+  state.modalCloseTimer = null;
+}
+
 function openDetail({ kicker, title, body }, triggerElement = null) {
+  clearModalAnimationWork();
   state.modalClosing = false;
   state.lastDetailTriggerRect = rectFromTrigger(triggerElement) || state.lastDetailTriggerRect || modalTargetRect();
   const sourceRect = state.lastDetailTriggerRect;
   const targetRect = modalTargetRect();
 
+  elements.detailModal.classList.add("modal-hidden", "modal-prep");
+  elements.detailModal.classList.remove("open", "opening", "closing", "settled", "backdrop-ready");
   elements.detailKicker.textContent = kicker || t("labels.viewDetails");
   elements.detailTitle.textContent = title || "";
   elements.detailBody.innerHTML = body || "";
-  elements.detailModal.classList.remove("open", "opening", "closing", "settled");
+  elements.detailPanel.scrollTop = 0;
+  updateDetailProgress();
   elements.detailModal.style.setProperty("--modal-radius", "22px");
   elements.detailModal.style.setProperty("--modal-content-opacity", "0");
   elements.detailModal.style.setProperty("--modal-scale", "0.985");
   setModalRect(sourceRect, 0.18);
-  elements.detailModal.classList.add("open", "opening");
   elements.detailModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
-  window.requestAnimationFrame(() => {
-    elements.detailModal.style.setProperty("--modal-radius", "32px");
-    elements.detailModal.style.setProperty("--modal-scale", "1");
-    elements.detailModal.style.setProperty("--modal-content-opacity", "1");
-    setModalRect(targetRect, 1);
-    window.setTimeout(() => {
-      elements.detailModal.classList.remove("opening");
-      elements.detailModal.classList.add("settled");
-      elements.detailClose.focus();
-    }, 620);
+  elements.detailModal.getBoundingClientRect();
+  elements.detailModal.classList.remove("modal-hidden");
+  elements.detailModal.classList.add("open");
+  elements.detailModal.getBoundingClientRect();
+
+  state.modalOpenFrameOne = window.requestAnimationFrame(() => {
+    elements.detailModal.classList.remove("modal-prep");
+    elements.detailModal.getBoundingClientRect();
+    state.modalOpenFrameTwo = window.requestAnimationFrame(() => {
+      elements.detailModal.classList.add("opening", "backdrop-ready");
+      elements.detailModal.style.setProperty("--modal-radius", "32px");
+      elements.detailModal.style.setProperty("--modal-scale", "1");
+      elements.detailModal.style.setProperty("--modal-content-opacity", "1");
+      setModalRect(targetRect, 1);
+      state.modalOpenTimer = window.setTimeout(() => {
+        elements.detailModal.classList.remove("opening");
+        elements.detailModal.classList.add("settled");
+        updateDetailProgress();
+        elements.detailClose.focus();
+        state.modalOpenTimer = null;
+      }, 680);
+    });
   });
 }
 
 function closeDetail() {
   if (!elements.detailModal.classList.contains("open") || state.modalClosing) return;
+  if (state.modalOpenFrameOne) window.cancelAnimationFrame(state.modalOpenFrameOne);
+  if (state.modalOpenFrameTwo) window.cancelAnimationFrame(state.modalOpenFrameTwo);
+  if (state.modalOpenTimer) window.clearTimeout(state.modalOpenTimer);
+  state.modalOpenFrameOne = null;
+  state.modalOpenFrameTwo = null;
+  state.modalOpenTimer = null;
   state.modalClosing = true;
+  elements.detailModal.classList.remove("modal-prep", "opening", "settled");
   elements.detailModal.style.setProperty("--modal-content-opacity", "0");
   elements.detailModal.style.setProperty("--modal-panel-opacity", "0");
   elements.detailModal.style.setProperty("--modal-scale", "0.992");
+  elements.detailModal.classList.remove("backdrop-ready");
   elements.detailModal.classList.add("closing");
-  window.setTimeout(() => {
-    elements.detailModal.classList.remove("open", "opening", "closing", "settled");
+  state.modalCloseTimer = window.setTimeout(() => {
+    elements.detailModal.classList.add("modal-hidden", "modal-prep");
+    elements.detailModal.classList.remove("open", "opening", "closing", "settled", "backdrop-ready");
     elements.detailModal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
-    elements.detailModal.style.removeProperty("--modal-panel-opacity");
-    elements.detailModal.style.removeProperty("--modal-content-opacity");
-    elements.detailModal.style.removeProperty("--modal-scale");
-    state.modalClosing = false;
+    window.requestAnimationFrame(() => {
+      elements.detailModal.style.removeProperty("--modal-panel-opacity");
+      elements.detailModal.style.removeProperty("--modal-content-opacity");
+      elements.detailModal.style.removeProperty("--modal-scale");
+      state.modalClosing = false;
+      state.modalCloseTimer = null;
+    });
   }, 260);
 }
 
@@ -1249,29 +1283,61 @@ function renderCountries() {
 }
 
 function renderRegionalStats() {
+  state.regionalIndex = 0;
   elements.regionalGrid.innerHTML = state.feed.regionalStats
-    .map(
-      (region) => `
-        <article class="regional-card clickable-card" data-open-kind="region" data-open-id="${escapeHtml(region.region)}" tabindex="0" role="button" aria-label="${escapeHtml(t("labels.viewDetails"))}">
-          <span class="label">${escapeHtml(region.region)}</span>
-          <h3>${region.agencyCount} ${state.language === "zh" ? "个机构" : "agencies"}</h3>
-          <p>${state.language === "zh" ? "最新证据" : "Latest evidence"} · ${escapeHtml(formatSourceTime(region.latest))}</p>
-          <div class="metric-list">
-            ${region.metrics
-              .map(
-                (metric) => `
-                  <div class="metric-row">
-                    <span>${escapeHtml(metric.metric)}</span>
-                    <strong>${escapeHtml(formatValue(metric))}</strong>
-                  </div>
-                `,
-              )
-              .join("")}
+    .map((region) => {
+      const primary = region.metrics[0];
+      const primaryValue = primary ? formatValue(primary) : String(region.agencyCount);
+      const numericValue = primary && Number.isFinite(Number(String(primary.value).replace(/,/g, "")));
+      const countries = [
+        ...new Set(
+          region.metrics
+            .flatMap((metric) => String(metric.country || "").split(/[;,]/))
+            .map((country) => country.trim())
+            .filter(Boolean),
+        ),
+      ];
+      const countryPreview =
+        countries.length > 2
+          ? `${countries.slice(0, 2).join(" / ")} +${countries.length - 2}`
+          : countries.join(" / ") || region.region;
+      const agencyText = state.language === "zh" ? `${region.agencyCount} 个机构` : `${region.agencyCount} agencies`;
+      const evidenceText = state.language === "zh" ? `${region.metrics.length} 条证据` : `${region.metrics.length} signals`;
+      const latestLabel = state.language === "zh" ? "发布日期" : "Published";
+      return `
+        <article class="regional-card clickable-card ${numericValue ? "has-number-value" : "has-text-value"}" data-open-kind="region" data-open-id="${escapeHtml(region.region)}" tabindex="0" role="button" aria-label="${escapeHtml(t("labels.viewDetails"))}">
+          <div>
+            <span class="label">${state.language === "zh" ? "官方区域" : "Official region"}</span>
+            <h3>${escapeHtml(region.region)}</h3>
+            <p>${escapeHtml(countryPreview)} · ${escapeHtml(agencyText)}</p>
+          </div>
+          <div>
+            <div class="regional-primary">
+              <span>${escapeHtml(latestLabel)} · ${escapeHtml(formatSourceTime(region.latest))}</span>
+              <strong>${escapeHtml(primaryValue)}</strong>
+              <small>${escapeHtml(primary?.metric || t("labels.noMetric"))}</small>
+            </div>
+            <div class="regional-stats" aria-hidden="true">
+              <div class="regional-stat">
+                <span>${state.language === "zh" ? "来源机构" : "Agencies"}</span>
+                <strong>${escapeHtml(agencyText)}</strong>
+              </div>
+              <div class="regional-stat">
+                <span>${state.language === "zh" ? "证据信号" : "Evidence"}</span>
+                <strong>${escapeHtml(evidenceText)}</strong>
+              </div>
+            </div>
           </div>
         </article>
-      `,
-    )
+      `;
+    })
     .join("");
+  renderRegionalDots();
+  window.requestAnimationFrame(() => {
+    syncRegionalToIndex(0, "auto");
+    updateRegionalNav();
+    updateRegionalPlayToggle();
+  });
 }
 
 function renderTimeline() {
@@ -1533,6 +1599,117 @@ function updatePageProgress() {
   elements.pageProgressBar.style.transform = `scaleX(${progress})`;
 }
 
+function updateDetailProgress() {
+  if (!elements.detailPanel || !elements.detailProgressBar) return;
+  const maxScroll = Math.max(1, elements.detailPanel.scrollHeight - elements.detailPanel.clientHeight);
+  const progress = Math.min(1, Math.max(0, elements.detailPanel.scrollTop / maxScroll));
+  elements.detailProgressBar.style.transform = `scaleX(${progress})`;
+}
+
+function regionalCards() {
+  return [...(elements.regionalGrid?.querySelectorAll(".regional-card") || [])];
+}
+
+function regionalMaxIndex() {
+  return Math.max(0, regionalCards().length - 1);
+}
+
+function regionalCardLeft(index) {
+  const card = regionalCards()[index];
+  if (!card || !elements.regionalGrid) return 0;
+  const paddingLeft = Number.parseFloat(getComputedStyle(elements.regionalGrid).paddingLeft) || 0;
+  return card.offsetLeft - elements.regionalGrid.offsetLeft - paddingLeft;
+}
+
+function renderRegionalDots() {
+  if (!elements.regionalDots) return;
+  const count = regionalCards().length;
+  elements.regionalDots.innerHTML = Array.from({ length: count }, (_, index) => {
+    const label = state.language === "zh" ? `第 ${index + 1} 张区域卡片` : `Regional card ${index + 1}`;
+    return `<button class="regional-dot" type="button" data-regional-index="${index}" aria-label="${escapeHtml(label)}"></button>`;
+  }).join("");
+}
+
+function setRegionalActive(index) {
+  const cards = regionalCards();
+  if (!cards.length || !elements.regionalPrev || !elements.regionalNext) return;
+  const nextIndex = Math.min(cards.length - 1, Math.max(0, index));
+  state.regionalIndex = nextIndex;
+  elements.regionalPrev.disabled = nextIndex <= 0;
+  elements.regionalNext.disabled = nextIndex >= cards.length - 1;
+  cards.forEach((card, cardIndex) => {
+    card.classList.toggle("is-current", cardIndex === nextIndex);
+  });
+  elements.regionalDots?.querySelectorAll(".regional-dot").forEach((dot, dotIndex) => {
+    const active = dotIndex === nextIndex;
+    dot.classList.toggle("active", active);
+    dot.setAttribute("aria-current", active ? "true" : "false");
+  });
+}
+
+function updateRegionalPlayToggle() {
+  if (!elements.regionalPlayToggle) return;
+  const label = state.regionalPaused
+    ? state.language === "zh" ? "播放区域轮播" : "Play regional gallery"
+    : state.language === "zh" ? "暂停区域轮播" : "Pause regional gallery";
+  elements.regionalPlayToggle.classList.toggle("is-paused", state.regionalPaused);
+  elements.regionalPlayToggle.setAttribute("aria-pressed", state.regionalPaused ? "true" : "false");
+  elements.regionalPlayToggle.setAttribute("aria-label", label);
+  elements.regionalDots?.classList.toggle("is-paused", state.regionalPaused);
+}
+
+function clearRegionalTimer() {
+  if (state.regionalTimer) {
+    window.clearTimeout(state.regionalTimer);
+    state.regionalTimer = null;
+  }
+}
+
+function scheduleRegionalAutoplay() {
+  clearRegionalTimer();
+  if (state.regionalPaused || regionalCards().length <= 1) return;
+  state.regionalTimer = window.setTimeout(() => {
+    const nextIndex = state.regionalIndex >= regionalMaxIndex() ? 0 : state.regionalIndex + 1;
+    syncRegionalToIndex(nextIndex);
+  }, 3000);
+}
+
+function syncRegionalToIndex(index, behavior = "smooth") {
+  if (!elements.regionalGrid) return;
+  const nextIndex = Math.min(regionalMaxIndex(), Math.max(0, index));
+  setRegionalActive(nextIndex);
+  elements.regionalGrid.scrollTo({
+    left: regionalCardLeft(nextIndex),
+    behavior,
+  });
+  scheduleRegionalAutoplay();
+}
+
+function updateRegionalNav() {
+  if (!elements.regionalGrid || !elements.regionalPrev || !elements.regionalNext) return;
+  const cards = regionalCards();
+  if (!cards.length) {
+    elements.regionalPrev.disabled = true;
+    elements.regionalNext.disabled = true;
+    return;
+  }
+  const gridLeft = elements.regionalGrid.scrollLeft;
+  let closestIndex = 0;
+  let closestDistance = Infinity;
+  cards.forEach((card, index) => {
+    const distance = Math.abs(gridLeft - regionalCardLeft(index));
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closestIndex = index;
+    }
+  });
+  setRegionalActive(closestIndex);
+}
+
+function moveRegionalCarousel(direction) {
+  syncRegionalToIndex(state.regionalIndex + direction);
+}
+
 elements.languageToggle.addEventListener("click", () => {
   state.language = state.language === "zh" ? "en" : "zh";
   localStorage.setItem("hanta-language", state.language);
@@ -1545,6 +1722,33 @@ elements.generateAi.addEventListener("click", () => generateAiSummary({ silent: 
 elements.apiProvider.addEventListener("change", updateProviderDefaults);
 elements.saveApiConfig.addEventListener("click", saveApiConfig);
 elements.clearApiConfig.addEventListener("click", clearApiConfig);
+elements.regionalPrev?.addEventListener("click", () => moveRegionalCarousel(-1));
+elements.regionalNext?.addEventListener("click", () => moveRegionalCarousel(1));
+elements.regionalPlayToggle?.addEventListener("click", () => {
+  state.regionalPaused = !state.regionalPaused;
+  updateRegionalPlayToggle();
+  if (state.regionalPaused) {
+    clearRegionalTimer();
+  } else {
+    scheduleRegionalAutoplay();
+  }
+});
+elements.regionalDots?.addEventListener("click", (event) => {
+  const dot = event.target.closest("[data-regional-index]");
+  if (!dot) return;
+  syncRegionalToIndex(Number(dot.dataset.regionalIndex));
+});
+elements.regionalGrid?.addEventListener("scroll", () => {
+  if (state.regionalScrollRaf) return;
+  state.regionalScrollRaf = window.requestAnimationFrame(() => {
+    state.regionalScrollRaf = null;
+    updateRegionalNav();
+  });
+}, { passive: true });
+elements.regionalGrid?.addEventListener("selectstart", (event) => {
+  event.preventDefault();
+});
+elements.detailPanel?.addEventListener("scroll", updateDetailProgress, { passive: true });
 elements.countrySearch.addEventListener("input", (event) => {
   state.query = event.target.value;
   renderCountries();
@@ -1574,7 +1778,11 @@ document.addEventListener("keydown", (event) => {
 elements.detailBackdrop.addEventListener("click", closeDetail);
 elements.detailClose.addEventListener("click", closeDetail);
 window.addEventListener("scroll", updatePageProgress, { passive: true });
-window.addEventListener("resize", updatePageProgress);
+window.addEventListener("resize", () => {
+  updatePageProgress();
+  updateDetailProgress();
+  updateRegionalNav();
+});
 
 loadApiConfig();
 fillApiConfigForm();

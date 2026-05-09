@@ -5,8 +5,8 @@
   "description": "A local multilingual Hantavirus official-data monitor with evidence-bound AI summaries.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node ./server.js",
+    "dev": "node ./server.js"
   },
   "keywords": [
     "hantavirus",

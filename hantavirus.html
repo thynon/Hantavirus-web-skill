@@ -51,11 +51,10 @@
           <p class="kicker" data-i18n="hero.kicker">多机构官方数据</p>
           <h1 data-i18n="hero.title">全球 Hantavirus 官方监测。</h1>
           <p class="hero-lede" data-i18n="hero.lede">
-            从 WHO、CDC、PAHO、ECDC 与国家卫生机构交叉核验数据。AI 只摘要可追溯的官方证据，不猜测病例数、趋势或风险。
+            汇集 WHO、CDC、PAHO、ECDC 与国家卫生机构公开信息。AI 仅整理带来源的官方证据。
           </p>
           <div class="hero-meta">
             <span id="generated-at">--</span>
-            <span data-i18n="hero.policy">最高权威优先，其次按日期并排显示。</span>
           </div>
         </div>
 
@@ -85,7 +84,7 @@
         <article class="signal-card">
           <span class="label" data-i18n="cards.countries">国家/地区池</span>
           <strong id="country-count">0</strong>
-          <small data-i18n="cards.countriesHint">全球广覆盖</small>
+          <small data-i18n="cards.countriesHint">多国家来源</small>
         </article>
         <article class="signal-card">
           <span class="label" data-i18n="cards.ai">AI 可信状态</span>
@@ -97,10 +96,6 @@
       <section class="section sources-section" id="sources">
         <div class="section-head reveal">
           <p class="kicker" data-i18n="sources.kicker">官方来源总览</p>
-          <h2 data-i18n="sources.title">不是 WHO 独角戏，而是多机构交叉核验。</h2>
-          <p data-i18n="sources.body">
-            每个数字保留来源、日期和摘录。若来源阻挡抓取，页面展示降级原因和官方链接。
-          </p>
         </div>
         <div class="source-grid" id="source-grid"></div>
       </section>
@@ -109,7 +104,6 @@
         <div class="section-head split reveal">
           <div>
             <p class="kicker" data-i18n="countries.kicker">国家数据矩阵</p>
-            <h2 data-i18n="countries.title">全球国家池，按证据和来源状态排序。</h2>
           </div>
           <div class="controls" role="group" aria-label="Country filters">
             <input id="country-search" type="search" data-i18n-placeholder="countries.search" placeholder="搜索国家或地区" />
@@ -123,16 +117,33 @@
 
       <section class="section analytics-section">
         <div class="section-head reveal">
-          <p class="kicker" data-i18n="regional.kicker">区域统计</p>
-          <h2 data-i18n="regional.title">不同口径并排显示，不强行合并。</h2>
+          <p class="kicker" data-i18n="regional.kicker">区域信号</p>
         </div>
-        <div class="regional-grid" id="regional-grid"></div>
+        <div class="regional-carousel reveal">
+          <div class="regional-stage">
+            <div class="regional-viewport">
+              <div class="regional-grid" id="regional-grid"></div>
+            </div>
+          </div>
+          <div class="regional-controls">
+            <div class="regional-dotnav">
+              <div class="regional-dots" id="regional-dots" aria-label="Regional card pages"></div>
+              <button class="regional-play-toggle" id="regional-play-toggle" type="button" aria-label="Pause regional gallery" aria-pressed="false">
+                <span class="regional-play-icon regional-pause-icon" aria-hidden="true"></span>
+                <span class="regional-play-icon regional-resume-icon" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="regional-arrows" aria-label="Regional carousel controls">
+              <button class="regional-nav regional-prev" id="regional-prev" type="button" aria-label="Previous regional card">‹</button>
+              <button class="regional-nav regional-next" id="regional-next" type="button" aria-label="Next regional card">›</button>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="section timeline-section">
         <div class="section-head reveal">
           <p class="kicker" data-i18n="timeline.kicker">事件时间线</p>
-          <h2 data-i18n="timeline.title">从最新事件到区域基线。</h2>
         </div>
         <div class="timeline" id="timeline"></div>
       </section>
@@ -141,10 +152,6 @@
         <div class="ai-panel reveal">
           <div class="ai-copy">
             <p class="kicker" data-i18n="ai.kicker">严谨 AI 摘要</p>
-            <h2 data-i18n="ai.title">AI 只处理官方证据包。</h2>
-            <p data-i18n="ai.body">
-              输入字段被限制为来源、链接、发布日期、国家、指标、数值和摘录。没有引用的结论会被丢弃。
-            </p>
             <button class="primary-action" id="generate-ai" type="button" data-i18n="ai.button">生成 AI 摘要</button>
             <div class="api-config" id="api-config">
               <h3 data-i18n="api.title">自定义 AI 供应商</h3>
@@ -203,12 +210,12 @@
             </p>
           </article>
           <article class="method-card">
-            <h3 data-i18n="method.title">数据方法</h3>
+            <h3 data-i18n="method.title">监测范围</h3>
             <ul>
-              <li data-i18n="method.item1">官方/准官方来源优先。</li>
-              <li data-i18n="method.item2">数字冲突时并排展示，不合并。</li>
-              <li data-i18n="method.item3">最高权威来源用醒目状态强调。</li>
-              <li data-i18n="method.item4">抓取失败时透明降级。</li>
+              <li data-i18n="method.item1">国际事件。</li>
+              <li data-i18n="method.item2">国家卫生机构。</li>
+              <li data-i18n="method.item3">区域公共卫生机构。</li>
+              <li data-i18n="method.item4">AI 摘要审计。</li>
             </ul>
           </article>
         </div>
@@ -217,7 +224,6 @@
       <section class="section health-section" id="health">
         <div class="section-head reveal">
           <p class="kicker" data-i18n="health.kicker">来源健康</p>
-          <h2 data-i18n="health.title">每次刷新都留下审计线索。</h2>
         </div>
         <div class="health-table-wrap reveal">
           <table class="health-table">
@@ -235,10 +241,8 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section disclaimer-section">
         <div class="disclaimer-cta reveal">
-          <h2 data-i18n="disclaimer.title">使用前请阅读完整免责声明。</h2>
-          <p data-i18n="disclaimer.body">本网站仅用于官方公共卫生信息监测与研究辅助，不提供医学诊断、治疗建议、旅行建议或风险预测。</p>
           <a href="/disclaimer.html" data-i18n="disclaimer.open">打开免责声明</a>
         </div>
       </section>
@@ -246,6 +250,9 @@
       <aside class="detail-modal" id="detail-modal" aria-hidden="true" aria-labelledby="detail-title">
         <div class="detail-backdrop" id="detail-backdrop"></div>
         <article class="detail-panel" role="dialog" aria-modal="true">
+          <div class="detail-progress" aria-hidden="true">
+            <span id="detail-progress-bar"></span>
+          </div>
           <button class="detail-close" id="detail-close" type="button" aria-label="Close detail">×</button>
           <p class="kicker" id="detail-kicker">Source</p>
           <h2 id="detail-title">Detail</h2>
