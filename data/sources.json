@@ -1,0 +1,728 @@
+{
+  "metadata": {
+    "snapshotDate": "2026-05-09",
+    "authorityOrder": ["WHO", "CDC", "PAHO", "ECDC", "National", "Regional"],
+    "notes": {
+      "en": "Seed metrics are official-source snapshots used when live parsing is blocked or a source requires manual verification.",
+      "zh": "种子指标是官方来源快照，用于实时解析受阻或来源需要人工核验时透明降级展示。"
+    }
+  },
+  "sources": [
+    {
+      "id": "who-don",
+      "agency": "WHO",
+      "name": "WHO Disease Outbreak News",
+      "type": "api",
+      "authority": 1,
+      "region": "Global",
+      "country": "Global",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news",
+      "endpoint": "https://www.who.int/api/news/diseaseoutbreaknews?%24top=50&%24orderby=PublicationDateAndTime%20desc",
+      "status": "primary",
+      "tags": ["event", "international", "outbreak-news"]
+    },
+    {
+      "id": "cdc-hantavirus",
+      "agency": "CDC",
+      "name": "CDC Hantavirus",
+      "type": "page",
+      "authority": 1,
+      "region": "North America",
+      "country": "United States",
+      "url": "https://www.cdc.gov/hantavirus/",
+      "status": "primary",
+      "tags": ["national", "us", "prevention"]
+    },
+    {
+      "id": "cdc-situation",
+      "agency": "CDC",
+      "name": "CDC Current Situation",
+      "type": "page",
+      "authority": 1,
+      "region": "North America",
+      "country": "United States",
+      "url": "https://www.cdc.gov/hantavirus/situation-summary/index.html",
+      "status": "primary",
+      "tags": ["national", "situation", "us"]
+    },
+    {
+      "id": "cdc-reported-cases",
+      "agency": "CDC",
+      "name": "CDC Reported Cases",
+      "type": "page",
+      "authority": 1,
+      "region": "North America",
+      "country": "United States",
+      "url": "https://www.cdc.gov/hantavirus/data-research/cases/index.html",
+      "status": "primary",
+      "tags": ["national", "cases", "us"]
+    },
+    {
+      "id": "cdc-nndss",
+      "agency": "CDC",
+      "name": "CDC NNDSS Weekly Data",
+      "type": "api",
+      "authority": 1,
+      "region": "North America",
+      "country": "United States",
+      "url": "https://data.cdc.gov/NNDSS/NNDSS-Weekly-Data/x9gk-5huc",
+      "endpoint": "https://data.cdc.gov/resource/x9gk-5huc.json?$limit=250&$order=weekendingdate%20desc",
+      "status": "attempted",
+      "tags": ["national", "weekly", "api"]
+    },
+    {
+      "id": "paho-alert-2025",
+      "agency": "PAHO",
+      "name": "Epidemiological Alert: Hantavirus Pulmonary Syndrome in the Americas",
+      "type": "pdf",
+      "authority": 1,
+      "region": "Americas",
+      "country": "Americas",
+      "url": "https://www.paho.org/sites/default/files/2025-12/2025-12-19-epidemiological-alert-hantavirus-engfinal_0.pdf",
+      "status": "primary",
+      "publishedAt": "2025-12-19",
+      "tags": ["regional", "americas", "hps"]
+    },
+    {
+      "id": "paho-topic",
+      "agency": "PAHO",
+      "name": "PAHO Hantavirus Topic",
+      "type": "page",
+      "authority": 1,
+      "region": "Americas",
+      "country": "Americas",
+      "url": "https://www.paho.org/en/topics/hantavirus",
+      "status": "primary",
+      "tags": ["regional", "guidance"]
+    },
+    {
+      "id": "ecdc-hantavirus",
+      "agency": "ECDC",
+      "name": "ECDC Hantavirus Infection",
+      "type": "page",
+      "authority": 1,
+      "region": "Europe",
+      "country": "EU/EEA",
+      "url": "https://www.ecdc.europa.eu/en/hantavirus-infection",
+      "status": "primary",
+      "tags": ["regional", "europe", "guidance"]
+    },
+    {
+      "id": "ecdc-aer-2023",
+      "agency": "ECDC",
+      "name": "Annual Epidemiological Report for 2023",
+      "type": "page",
+      "authority": 1,
+      "region": "Europe",
+      "country": "EU/EEA",
+      "url": "https://www.ecdc.europa.eu/en/publications-data/hantavirus-infection-annual-epidemiological-report-2023",
+      "status": "primary",
+      "publishedAt": "2025-07-17",
+      "tags": ["regional", "europe", "annual-report"]
+    },
+    {
+      "id": "argentina-health",
+      "agency": "National",
+      "name": "Argentina Ministry of Health",
+      "type": "page",
+      "authority": 2,
+      "region": "South America",
+      "country": "Argentina",
+      "url": "https://www.argentina.gob.ar/salud",
+      "status": "country",
+      "tags": ["national", "spanish"]
+    },
+    {
+      "id": "chile-health",
+      "agency": "National",
+      "name": "Chile Ministry of Health",
+      "type": "page",
+      "authority": 2,
+      "region": "South America",
+      "country": "Chile",
+      "url": "https://www.minsal.cl/",
+      "status": "country",
+      "tags": ["national", "spanish"]
+    },
+    {
+      "id": "brazil-health",
+      "agency": "National",
+      "name": "Brazil Ministry of Health",
+      "type": "page",
+      "authority": 2,
+      "region": "South America",
+      "country": "Brazil",
+      "url": "https://www.gov.br/saude/",
+      "status": "country",
+      "tags": ["national", "portuguese"]
+    },
+    {
+      "id": "panama-health",
+      "agency": "National",
+      "name": "Panama Ministry of Health",
+      "type": "page",
+      "authority": 2,
+      "region": "Central America",
+      "country": "Panama",
+      "url": "https://www.minsa.gob.pa/",
+      "status": "country",
+      "tags": ["national", "spanish"]
+    },
+    {
+      "id": "paraguay-health",
+      "agency": "National",
+      "name": "Paraguay Ministry of Public Health",
+      "type": "page",
+      "authority": 2,
+      "region": "South America",
+      "country": "Paraguay",
+      "url": "https://www.mspbs.gov.py/",
+      "status": "country",
+      "tags": ["national", "spanish"]
+    },
+    {
+      "id": "bolivia-health",
+      "agency": "National",
+      "name": "Bolivia Ministry of Health and Sports",
+      "type": "page",
+      "authority": 2,
+      "region": "South America",
+      "country": "Bolivia",
+      "url": "https://www.minsalud.gob.bo/",
+      "status": "country",
+      "tags": ["national", "spanish"]
+    },
+    {
+      "id": "uruguay-health",
+      "agency": "National",
+      "name": "Uruguay Ministry of Public Health",
+      "type": "page",
+      "authority": 2,
+      "region": "South America",
+      "country": "Uruguay",
+      "url": "https://www.gub.uy/ministerio-salud-publica/",
+      "status": "country",
+      "tags": ["national", "spanish"]
+    },
+    {
+      "id": "canada-health",
+      "agency": "National",
+      "name": "Public Health Agency of Canada",
+      "type": "page",
+      "authority": 2,
+      "region": "North America",
+      "country": "Canada",
+      "url": "https://www.canada.ca/en/public-health.html",
+      "status": "country",
+      "tags": ["national", "english", "french"]
+    },
+    {
+      "id": "china-cdc",
+      "agency": "National",
+      "name": "Chinese Center for Disease Control and Prevention",
+      "type": "page",
+      "authority": 2,
+      "region": "East Asia",
+      "country": "China",
+      "url": "https://www.chinacdc.cn/",
+      "status": "country",
+      "tags": ["national", "chinese", "hfrs"]
+    },
+    {
+      "id": "korea-kdca",
+      "agency": "National",
+      "name": "Korea Disease Control and Prevention Agency",
+      "type": "page",
+      "authority": 2,
+      "region": "East Asia",
+      "country": "South Korea",
+      "url": "https://www.kdca.go.kr/",
+      "status": "country",
+      "tags": ["national", "korean", "hfrs"]
+    },
+    {
+      "id": "japan-niid",
+      "agency": "National",
+      "name": "National Institute of Infectious Diseases Japan",
+      "type": "page",
+      "authority": 2,
+      "region": "East Asia",
+      "country": "Japan",
+      "url": "https://www.niid.go.jp/niid/en/",
+      "status": "country",
+      "tags": ["national", "english", "japanese"]
+    },
+    {
+      "id": "germany-rki",
+      "agency": "National",
+      "name": "Robert Koch Institute",
+      "type": "page",
+      "authority": 2,
+      "region": "Europe",
+      "country": "Germany",
+      "url": "https://www.rki.de/",
+      "status": "country",
+      "tags": ["national", "german"]
+    },
+    {
+      "id": "finland-thl",
+      "agency": "National",
+      "name": "Finnish Institute for Health and Welfare",
+      "type": "page",
+      "authority": 2,
+      "region": "Europe",
+      "country": "Finland",
+      "url": "https://thl.fi/en/",
+      "status": "country",
+      "tags": ["national", "english", "finnish"]
+    },
+    {
+      "id": "sweden-pha",
+      "agency": "National",
+      "name": "Public Health Agency of Sweden",
+      "type": "page",
+      "authority": 2,
+      "region": "Europe",
+      "country": "Sweden",
+      "url": "https://www.folkhalsomyndigheten.se/the-public-health-agency-of-sweden/",
+      "status": "country",
+      "tags": ["national", "english", "swedish"]
+    },
+    {
+      "id": "france-sante",
+      "agency": "National",
+      "name": "Sante publique France",
+      "type": "page",
+      "authority": 2,
+      "region": "Europe",
+      "country": "France",
+      "url": "https://www.santepubliquefrance.fr/",
+      "status": "country",
+      "tags": ["national", "french"]
+    },
+    {
+      "id": "spain-health",
+      "agency": "National",
+      "name": "Spain Ministry of Health",
+      "type": "page",
+      "authority": 2,
+      "region": "Europe",
+      "country": "Spain",
+      "url": "https://www.sanidad.gob.es/",
+      "status": "country",
+      "tags": ["national", "spanish"]
+    },
+    {
+      "id": "uk-ukhsa",
+      "agency": "National",
+      "name": "UK Health Security Agency",
+      "type": "page",
+      "authority": 2,
+      "region": "Europe",
+      "country": "United Kingdom",
+      "url": "https://www.gov.uk/government/organisations/uk-health-security-agency",
+      "status": "country",
+      "tags": ["national", "english"]
+    },
+    {
+      "id": "netherlands-rivm",
+      "agency": "National",
+      "name": "National Institute for Public Health and the Environment",
+      "type": "page",
+      "authority": 2,
+      "region": "Europe",
+      "country": "Netherlands",
+      "url": "https://www.rivm.nl/en",
+      "status": "country",
+      "tags": ["national", "english", "dutch"]
+    },
+    {
+      "id": "switzerland-foph",
+      "agency": "National",
+      "name": "Swiss Federal Office of Public Health",
+      "type": "page",
+      "authority": 2,
+      "region": "Europe",
+      "country": "Switzerland",
+      "url": "https://www.bag.admin.ch/bag/en/home.html",
+      "status": "country",
+      "tags": ["national", "english", "german", "french"]
+    },
+    {
+      "id": "south-africa-nicd",
+      "agency": "National",
+      "name": "National Institute for Communicable Diseases",
+      "type": "page",
+      "authority": 2,
+      "region": "Southern Africa",
+      "country": "South Africa",
+      "url": "https://www.nicd.ac.za/",
+      "status": "country",
+      "tags": ["national", "english"]
+    }
+  ],
+  "seedMetrics": [
+    {
+      "id": "who-don600-cases",
+      "sourceId": "who-don",
+      "source": "WHO Disease Outbreak News",
+      "agency": "WHO",
+      "authority": 1,
+      "country": "Multi-country",
+      "region": "Global",
+      "metric": "reported cases in cruise-ship cluster",
+      "value": "8",
+      "unit": "cases",
+      "publishedAt": "2026-05-08",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600",
+      "excerpt": "As of 8 May, a total of eight cases, including three deaths, have been reported. Six cases have been laboratory-confirmed as hantavirus infections, with all identified as Andes virus."
+    },
+    {
+      "id": "who-don600-deaths",
+      "sourceId": "who-don",
+      "source": "WHO Disease Outbreak News",
+      "agency": "WHO",
+      "authority": 1,
+      "country": "Multi-country",
+      "region": "Global",
+      "metric": "reported deaths in cruise-ship cluster",
+      "value": "3",
+      "unit": "deaths",
+      "publishedAt": "2026-05-08",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600",
+      "excerpt": "As of 8 May, a total of eight cases, including three deaths, have been reported."
+    },
+    {
+      "id": "who-don600-confirmed",
+      "sourceId": "who-don",
+      "source": "WHO Disease Outbreak News",
+      "agency": "WHO",
+      "authority": 1,
+      "country": "Multi-country",
+      "region": "Global",
+      "metric": "laboratory-confirmed infections in cruise-ship cluster",
+      "value": "6",
+      "unit": "confirmed infections",
+      "publishedAt": "2026-05-08",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600",
+      "excerpt": "Six cases have been laboratory-confirmed as hantavirus infections, with all identified as Andes virus."
+    },
+    {
+      "id": "who-don600-risk-global",
+      "sourceId": "who-don",
+      "source": "WHO Disease Outbreak News",
+      "agency": "WHO",
+      "authority": 1,
+      "country": "Global",
+      "region": "Global",
+      "metric": "risk assessment",
+      "value": "low global risk; moderate risk for passengers and crew on the ship",
+      "unit": "risk statement",
+      "publishedAt": "2026-05-08",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600",
+      "excerpt": "WHO assesses the risk to the global population posed by this event as low. The risk for passengers and crew on the ship is considered moderate."
+    },
+    {
+      "id": "cdc-situation-us-risk",
+      "sourceId": "cdc-situation",
+      "source": "CDC Current Situation",
+      "agency": "CDC",
+      "authority": 1,
+      "country": "United States",
+      "region": "North America",
+      "metric": "current United States public risk",
+      "value": "extremely low",
+      "unit": "risk statement",
+      "publishedAt": "2026-05-08",
+      "url": "https://www.cdc.gov/hantavirus/situation-summary/index.html",
+      "excerpt": "CDC describes the current risk to the general U.S. public and travelers as extremely low and says no cases have been reported in the United States related to the cruise-ship event."
+    },
+    {
+      "id": "paho-2025-americas-cases",
+      "sourceId": "paho-alert-2025",
+      "source": "PAHO Epidemiological Alert",
+      "agency": "PAHO",
+      "authority": 1,
+      "country": "Americas",
+      "region": "Americas",
+      "metric": "HPS cases reported in the Americas in 2025 through epidemiological week 47",
+      "value": "229",
+      "unit": "cases",
+      "publishedAt": "2025-12-19",
+      "url": "https://www.paho.org/sites/default/files/2025-12/2025-12-19-epidemiological-alert-hantavirus-engfinal_0.pdf",
+      "excerpt": "In 2025, as of epidemiological week 47, eight countries in the Region of the Americas reported 229 cases of HPS."
+    },
+    {
+      "id": "paho-2025-americas-deaths",
+      "sourceId": "paho-alert-2025",
+      "source": "PAHO Epidemiological Alert",
+      "agency": "PAHO",
+      "authority": 1,
+      "country": "Americas",
+      "region": "Americas",
+      "metric": "HPS deaths reported in the Americas in 2025 through epidemiological week 47",
+      "value": "59",
+      "unit": "deaths",
+      "publishedAt": "2025-12-19",
+      "url": "https://www.paho.org/sites/default/files/2025-12/2025-12-19-epidemiological-alert-hantavirus-engfinal_0.pdf",
+      "excerpt": "In 2025, as of epidemiological week 47, eight countries reported 229 cases and 59 deaths, with a case fatality rate of 25.7%."
+    },
+    {
+      "id": "paho-2025-americas-cfr",
+      "sourceId": "paho-alert-2025",
+      "source": "PAHO Epidemiological Alert",
+      "agency": "PAHO",
+      "authority": 1,
+      "country": "Americas",
+      "region": "Americas",
+      "metric": "HPS case fatality rate in the Americas in 2025 through epidemiological week 47",
+      "value": "25.7",
+      "unit": "percent",
+      "publishedAt": "2025-12-19",
+      "url": "https://www.paho.org/sites/default/files/2025-12/2025-12-19-epidemiological-alert-hantavirus-engfinal_0.pdf",
+      "excerpt": "Eight countries reported 229 cases and 59 deaths, with a case fatality rate of 25.7%."
+    },
+    {
+      "id": "ecdc-2023-eueea-cases",
+      "sourceId": "ecdc-aer-2023",
+      "source": "ECDC Annual Epidemiological Report",
+      "agency": "ECDC",
+      "authority": 1,
+      "country": "EU/EEA",
+      "region": "Europe",
+      "metric": "hantavirus infections reported by EU/EEA countries in 2023",
+      "value": "1885",
+      "unit": "cases",
+      "publishedAt": "2025-07-17",
+      "url": "https://www.ecdc.europa.eu/en/publications-data/hantavirus-infection-annual-epidemiological-report-2023",
+      "excerpt": "In the European Region, 1885 hantavirus infections were reported in 2023, marking the lowest rate observed between 2019 and 2023."
+    },
+    {
+      "id": "ecdc-2023-finland-germany-share",
+      "sourceId": "ecdc-aer-2023",
+      "source": "ECDC Annual Epidemiological Report",
+      "agency": "ECDC",
+      "authority": 1,
+      "country": "Finland; Germany",
+      "region": "Europe",
+      "metric": "share of EU/EEA hantavirus infections reported by Finland and Germany in 2023",
+      "value": "60.5",
+      "unit": "percent",
+      "publishedAt": "2025-07-17",
+      "url": "https://www.ecdc.europa.eu/en/publications-data/hantavirus-infection-annual-epidemiological-report-2023",
+      "excerpt": "Finland and Germany together accounted for 60.5% of reported EU/EEA hantavirus infections in 2023."
+    }
+  ],
+  "countrySeeds": [
+    {
+      "country": "United States",
+      "region": "North America",
+      "authority": 1,
+      "headline": {
+        "en": "CDC provides national guidance and current situation updates; NNDSS weekly data is attempted when accessible.",
+        "zh": "CDC 提供国家级指南和当前态势更新；NNDSS 周报数据在可访问时尝试抓取。"
+      },
+      "sourceIds": ["cdc-hantavirus", "cdc-situation", "cdc-reported-cases", "cdc-nndss"]
+    },
+    {
+      "country": "Canada",
+      "region": "North America",
+      "authority": 2,
+      "headline": {
+        "en": "National source coverage is included for official verification, with no seed statistic asserted.",
+        "zh": "纳入国家级来源用于官方核验，初始不声称具体统计数字。"
+      },
+      "sourceIds": ["canada-health"]
+    },
+    {
+      "country": "Argentina",
+      "region": "South America",
+      "authority": 2,
+      "headline": {
+        "en": "Relevant to Andes virus monitoring and the WHO cruise-ship event coordination.",
+        "zh": "与 Andes virus 监测和 WHO 邮轮事件协调相关。"
+      },
+      "sourceIds": ["argentina-health", "paho-alert-2025", "who-don"]
+    },
+    {
+      "country": "Chile",
+      "region": "South America",
+      "authority": 2,
+      "headline": {
+        "en": "Included for Andes virus and Southern Cone surveillance context.",
+        "zh": "纳入 Andes virus 和南锥体监测背景。"
+      },
+      "sourceIds": ["chile-health", "paho-alert-2025", "who-don"]
+    },
+    {
+      "country": "Brazil",
+      "region": "South America",
+      "authority": 2,
+      "headline": {
+        "en": "Included through national health ministry and PAHO regional surveillance.",
+        "zh": "通过国家卫生部和 PAHO 区域监测纳入。"
+      },
+      "sourceIds": ["brazil-health", "paho-alert-2025"]
+    },
+    {
+      "country": "Panama",
+      "region": "Central America",
+      "authority": 2,
+      "headline": {
+        "en": "Included through national health ministry and PAHO HPS alert coverage.",
+        "zh": "通过国家卫生部和 PAHO HPS 警报覆盖纳入。"
+      },
+      "sourceIds": ["panama-health", "paho-alert-2025"]
+    },
+    {
+      "country": "Paraguay",
+      "region": "South America",
+      "authority": 2,
+      "headline": {
+        "en": "Included through national public health source and PAHO regional context.",
+        "zh": "通过国家公共卫生来源和 PAHO 区域背景纳入。"
+      },
+      "sourceIds": ["paraguay-health", "paho-alert-2025"]
+    },
+    {
+      "country": "Bolivia",
+      "region": "South America",
+      "authority": 2,
+      "headline": {
+        "en": "Included through national health source and PAHO regional context.",
+        "zh": "通过国家卫生来源和 PAHO 区域背景纳入。"
+      },
+      "sourceIds": ["bolivia-health", "paho-alert-2025"]
+    },
+    {
+      "country": "Uruguay",
+      "region": "South America",
+      "authority": 2,
+      "headline": {
+        "en": "Included through national public health source and PAHO regional context.",
+        "zh": "通过国家公共卫生来源和 PAHO 区域背景纳入。"
+      },
+      "sourceIds": ["uruguay-health", "paho-alert-2025"]
+    },
+    {
+      "country": "China",
+      "region": "East Asia",
+      "authority": 2,
+      "headline": {
+        "en": "Included for HFRS surveillance context in East Asia.",
+        "zh": "纳入东亚 HFRS 监测背景。"
+      },
+      "sourceIds": ["china-cdc"]
+    },
+    {
+      "country": "South Korea",
+      "region": "East Asia",
+      "authority": 2,
+      "headline": {
+        "en": "Included for HFRS surveillance and national disease-control verification.",
+        "zh": "纳入 HFRS 监测和国家疾控核验。"
+      },
+      "sourceIds": ["korea-kdca"]
+    },
+    {
+      "country": "Japan",
+      "region": "East Asia",
+      "authority": 2,
+      "headline": {
+        "en": "Included for national infectious-disease source coverage.",
+        "zh": "纳入国家传染病来源覆盖。"
+      },
+      "sourceIds": ["japan-niid"]
+    },
+    {
+      "country": "Germany",
+      "region": "Europe",
+      "authority": 2,
+      "headline": {
+        "en": "Included through RKI and ECDC annual surveillance context.",
+        "zh": "通过 RKI 和 ECDC 年度监测背景纳入。"
+      },
+      "sourceIds": ["germany-rki", "ecdc-aer-2023"]
+    },
+    {
+      "country": "Finland",
+      "region": "Europe",
+      "authority": 2,
+      "headline": {
+        "en": "Included through THL and ECDC annual surveillance context.",
+        "zh": "通过 THL 和 ECDC 年度监测背景纳入。"
+      },
+      "sourceIds": ["finland-thl", "ecdc-aer-2023"]
+    },
+    {
+      "country": "Sweden",
+      "region": "Europe",
+      "authority": 2,
+      "headline": {
+        "en": "Included through national public health source and ECDC regional context.",
+        "zh": "通过国家公共卫生来源和 ECDC 区域背景纳入。"
+      },
+      "sourceIds": ["sweden-pha", "ecdc-hantavirus"]
+    },
+    {
+      "country": "France",
+      "region": "Europe",
+      "authority": 2,
+      "headline": {
+        "en": "Included through national public health source and ECDC regional context.",
+        "zh": "通过国家公共卫生来源和 ECDC 区域背景纳入。"
+      },
+      "sourceIds": ["france-sante", "ecdc-hantavirus"]
+    },
+    {
+      "country": "Spain",
+      "region": "Europe",
+      "authority": 2,
+      "headline": {
+        "en": "Included through national health ministry and WHO event coordination context.",
+        "zh": "通过国家卫生部和 WHO 事件协调背景纳入。"
+      },
+      "sourceIds": ["spain-health", "who-don", "ecdc-hantavirus"]
+    },
+    {
+      "country": "United Kingdom",
+      "region": "Europe",
+      "authority": 2,
+      "headline": {
+        "en": "Included through UKHSA and WHO event coordination context.",
+        "zh": "通过 UKHSA 和 WHO 事件协调背景纳入。"
+      },
+      "sourceIds": ["uk-ukhsa", "who-don"]
+    },
+    {
+      "country": "Netherlands",
+      "region": "Europe",
+      "authority": 2,
+      "headline": {
+        "en": "Included through RIVM and WHO event coordination context.",
+        "zh": "通过 RIVM 和 WHO 事件协调背景纳入。"
+      },
+      "sourceIds": ["netherlands-rivm", "who-don", "ecdc-hantavirus"]
+    },
+    {
+      "country": "Switzerland",
+      "region": "Europe",
+      "authority": 2,
+      "headline": {
+        "en": "Included through FOPH and WHO event laboratory coordination context.",
+        "zh": "通过 FOPH 和 WHO 事件实验室协调背景纳入。"
+      },
+      "sourceIds": ["switzerland-foph", "who-don"]
+    },
+    {
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "authority": 2,
+      "headline": {
+        "en": "Included through NICD and WHO event laboratory confirmation context.",
+        "zh": "通过 NICD 和 WHO 事件实验室确认背景纳入。"
+      },
+      "sourceIds": ["south-africa-nicd", "who-don"]
+    }
+  ]
+}

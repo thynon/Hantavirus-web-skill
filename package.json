@@ -1,0 +1,21 @@
+{
+  "name": "hantavirus-official-monitor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A local multilingual Hantavirus official-data monitor with evidence-bound AI summaries.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "hantavirus",
+    "official-data",
+    "public-health",
+    "ai-summary"
+  ],
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  }
+}

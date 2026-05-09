@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hantavirus Global Monitor</title>
+    <link rel="stylesheet" href="hantavirus.css" />
+  </head>
+  <body>
+    <noscript>
+      <div class="noscript-fallback">
+        <h1>Hantavirus Global Monitor</h1>
+        <p>JavaScript is required for the interactive dashboard. Start the local server or allow scripts for this local file.</p>
+      </div>
+    </noscript>
+
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Hantavirus Global Monitor home">
+        <span class="brand-icon" aria-hidden="true"></span>
+        <span>Hantavirus Monitor</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#sources" data-i18n="nav.sources">来源</a>
+        <a href="#countries" data-i18n="nav.countries">国家</a>
+        <a href="#ai" data-i18n="nav.ai">AI 摘要</a>
+        <a href="#health" data-i18n="nav.health">健康状态</a>
+        <a href="/disclaimer.html" data-i18n="nav.disclaimer">免责声明</a>
+      </nav>
+      <div class="top-actions">
+        <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch language">
+          <span id="language-label">EN</span>
+        </button>
+        <button class="refresh-button ai-refresh-button" id="refresh-ai-button" type="button">
+          <span data-i18n="actions.refreshAi">刷新摘要</span>
+        </button>
+        <button class="refresh-button" id="refresh-button" type="button">
+          <span data-i18n="actions.refresh">刷新</span>
+        </button>
+      </div>
+      <div class="page-progress" aria-hidden="true">
+        <span id="page-progress-bar"></span>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <p class="kicker" data-i18n="hero.kicker">多机构官方数据</p>
+          <h1 data-i18n="hero.title">全球 Hantavirus 官方监测。</h1>
+          <p class="hero-lede" data-i18n="hero.lede">
+            从 WHO、CDC、PAHO、ECDC 与国家卫生机构交叉核验数据。AI 只摘要可追溯的官方证据，不猜测病例数、趋势或风险。
+          </p>
+          <div class="hero-meta">
+            <span id="generated-at">--</span>
+            <span data-i18n="hero.policy">最高权威优先，其次按日期并排显示。</span>
+          </div>
+        </div>
+
+        <div class="hero-orbit reveal" aria-label="Global source status visualization">
+          <div class="orbit-core">
+            <span id="source-count">0</span>
+            <small data-i18n="hero.sources">官方来源</small>
+          </div>
+          <span class="orbit-dot dot-who">WHO</span>
+          <span class="orbit-dot dot-cdc">CDC</span>
+          <span class="orbit-dot dot-paho">PAHO</span>
+          <span class="orbit-dot dot-ecdc">ECDC</span>
+        </div>
+      </section>
+
+      <section class="signal-strip reveal" aria-label="Key monitoring signals">
+        <article class="signal-card emphasis-card">
+          <span class="label" data-i18n="cards.latestEvent">最新国际事件</span>
+          <strong id="latest-event-title">--</strong>
+          <small id="latest-event-date">--</small>
+        </article>
+        <article class="signal-card authority-card">
+          <span class="label" data-i18n="cards.authority">最高权威证据</span>
+          <strong id="authority-metric">--</strong>
+          <small id="authority-source">--</small>
+        </article>
+        <article class="signal-card">
+          <span class="label" data-i18n="cards.countries">国家/地区池</span>
+          <strong id="country-count">0</strong>
+          <small data-i18n="cards.countriesHint">全球广覆盖</small>
+        </article>
+        <article class="signal-card">
+          <span class="label" data-i18n="cards.ai">AI 可信状态</span>
+          <strong id="ai-status">--</strong>
+          <small id="ai-status-detail">--</small>
+        </article>
+      </section>
+
+      <section class="section sources-section" id="sources">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="sources.kicker">官方来源总览</p>
+          <h2 data-i18n="sources.title">不是 WHO 独角戏，而是多机构交叉核验。</h2>
+          <p data-i18n="sources.body">
+            每个数字保留来源、日期和摘录。若来源阻挡抓取，页面展示降级原因和官方链接。
+          </p>
+        </div>
+        <div class="source-grid" id="source-grid"></div>
+      </section>
+
+      <section class="section matrix-section" id="countries">
+        <div class="section-head split reveal">
+          <div>
+            <p class="kicker" data-i18n="countries.kicker">国家数据矩阵</p>
+            <h2 data-i18n="countries.title">全球国家池，按证据和来源状态排序。</h2>
+          </div>
+          <div class="controls" role="group" aria-label="Country filters">
+            <input id="country-search" type="search" data-i18n-placeholder="countries.search" placeholder="搜索国家或地区" />
+            <select id="region-filter" aria-label="Region filter">
+              <option value="all" data-i18n="regions.all">全部地区</option>
+            </select>
+          </div>
+        </div>
+        <div class="country-matrix" id="country-matrix"></div>
+      </section>
+
+      <section class="section analytics-section">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="regional.kicker">区域统计</p>
+          <h2 data-i18n="regional.title">不同口径并排显示，不强行合并。</h2>
+        </div>
+        <div class="regional-grid" id="regional-grid"></div>
+      </section>
+
+      <section class="section timeline-section">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="timeline.kicker">事件时间线</p>
+          <h2 data-i18n="timeline.title">从最新事件到区域基线。</h2>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <section class="section ai-section" id="ai">
+        <div class="ai-panel reveal">
+          <div class="ai-copy">
+            <p class="kicker" data-i18n="ai.kicker">严谨 AI 摘要</p>
+            <h2 data-i18n="ai.title">AI 只处理官方证据包。</h2>
+            <p data-i18n="ai.body">
+              输入字段被限制为来源、链接、发布日期、国家、指标、数值和摘录。没有引用的结论会被丢弃。
+            </p>
+            <button class="primary-action" id="generate-ai" type="button" data-i18n="ai.button">生成 AI 摘要</button>
+            <div class="api-config" id="api-config">
+              <h3 data-i18n="api.title">自定义 AI 供应商</h3>
+              <p data-i18n="api.body">支持 OpenAI 兼容接口、OpenAI、Anthropic、Gemini、DeepSeek、通义千问等。密钥只保存在本机浏览器。</p>
+              <div class="api-config-grid">
+                <label>
+                  <span data-i18n="api.provider">供应商</span>
+                  <select id="api-provider">
+                    <option value="openai-compatible">OpenAI Compatible</option>
+                    <option value="openai">OpenAI</option>
+                    <option value="anthropic">Anthropic</option>
+                    <option value="gemini">Google Gemini</option>
+                    <option value="deepseek">DeepSeek</option>
+                    <option value="qwen">通义千问 / Qwen</option>
+                    <option value="openrouter">OpenRouter</option>
+                    <option value="mistral">Mistral AI</option>
+                    <option value="groq">Groq</option>
+                    <option value="kimi">Moonshot Kimi</option>
+                    <option value="zhipu">智谱 GLM</option>
+                    <option value="xai">xAI</option>
+                  </select>
+                </label>
+                <label>
+                  <span data-i18n="api.model">模型</span>
+                  <input id="api-model" type="text" placeholder="gpt-5.4-mini" />
+                </label>
+                <label>
+                  <span data-i18n="api.baseUrl">Base URL</span>
+                  <input id="api-base-url" type="url" placeholder="https://api.openai.com/v1" />
+                </label>
+                <label>
+                  <span data-i18n="api.key">API Key</span>
+                  <input id="api-key" type="password" autocomplete="off" placeholder="sk-..." />
+                </label>
+              </div>
+              <div class="api-config-actions">
+                <button class="primary-action" id="save-api-config" type="button" data-i18n="api.save">保存配置</button>
+                <button class="refresh-button" id="clear-api-config" type="button" data-i18n="api.clear">清除</button>
+              </div>
+              <div class="api-config-status" id="api-config-status"></div>
+            </div>
+          </div>
+          <div class="ai-result" id="ai-result" aria-live="polite">
+            <div class="empty" data-i18n="ai.empty">等待生成。可在左侧配置任意支持的 AI 供应商。</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section explain-section">
+        <div class="explain-grid reveal">
+          <article>
+            <p class="kicker" data-i18n="about.kicker">Hantavirus 是什么</p>
+            <h2 data-i18n="about.title">一组多由啮齿动物传播的病毒。</h2>
+            <p data-i18n="about.body">
+              Hantavirus 可导致美洲常见的 HPS/HCPS，也可导致欧洲和亚洲常见的 HFRS。暴露通常与被感染啮齿动物的尿液、粪便或唾液污染环境有关。
+            </p>
+          </article>
+          <article class="method-card">
+            <h3 data-i18n="method.title">数据方法</h3>
+            <ul>
+              <li data-i18n="method.item1">官方/准官方来源优先。</li>
+              <li data-i18n="method.item2">数字冲突时并排展示，不合并。</li>
+              <li data-i18n="method.item3">最高权威来源用醒目状态强调。</li>
+              <li data-i18n="method.item4">抓取失败时透明降级。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section health-section" id="health">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="health.kicker">来源健康</p>
+          <h2 data-i18n="health.title">每次刷新都留下审计线索。</h2>
+        </div>
+        <div class="health-table-wrap reveal">
+          <table class="health-table">
+            <thead>
+              <tr>
+                <th data-i18n="health.source">来源</th>
+                <th data-i18n="health.agency">机构</th>
+                <th data-i18n="health.status">状态</th>
+                <th data-i18n="health.checked">检查时间</th>
+                <th data-i18n="health.reason">说明</th>
+              </tr>
+            </thead>
+            <tbody id="health-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="disclaimer-cta reveal">
+          <h2 data-i18n="disclaimer.title">使用前请阅读完整免责声明。</h2>
+          <p data-i18n="disclaimer.body">本网站仅用于官方公共卫生信息监测与研究辅助，不提供医学诊断、治疗建议、旅行建议或风险预测。</p>
+          <a href="/disclaimer.html" data-i18n="disclaimer.open">打开免责声明</a>
+        </div>
+      </section>
+
+      <aside class="detail-modal" id="detail-modal" aria-hidden="true" aria-labelledby="detail-title">
+        <div class="detail-backdrop" id="detail-backdrop"></div>
+        <article class="detail-panel" role="dialog" aria-modal="true">
+          <button class="detail-close" id="detail-close" type="button" aria-label="Close detail">×</button>
+          <p class="kicker" id="detail-kicker">Source</p>
+          <h2 id="detail-title">Detail</h2>
+          <div class="detail-body" id="detail-body"></div>
+        </article>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <span data-i18n="footer.note">仅用于公共卫生信息监测，不构成医学建议。</span>
+      <a href="https://www.who.int/news-room/fact-sheets/detail/hantavirus" target="_blank" rel="noreferrer">WHO Fact Sheet</a>
+      <a href="https://www.cdc.gov/hantavirus/" target="_blank" rel="noreferrer">CDC Hantavirus</a>
+    </footer>
+
+    <script src="hantavirus.js"></script>
+  </body>
+</html>
